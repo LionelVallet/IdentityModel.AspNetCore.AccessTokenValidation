@@ -72,7 +72,7 @@ namespace Tests
             request.Headers.Authorization = new AuthenticationHeaderValue("Bearer", "reference");
         
             Func<Task> act = async () => { await client.SendAsync(request); };
-            act.Should().Throw<InvalidOperationException>()
+            act.Should().ThrowAsync<InvalidOperationException>()
                 .Where(e => e.Message.StartsWith("No authentication handler is registered for the scheme 'Introspection'"));
         }
         
@@ -91,7 +91,7 @@ namespace Tests
             request.Headers.Authorization = new AuthenticationHeaderValue("Bearer", "reference");
         
             Func<Task> act = async () => { await client.SendAsync(request); };
-            act.Should().Throw<InvalidOperationException>()
+            act.Should().ThrowAsync<InvalidOperationException>()
                 .Where(e => e.Message.StartsWith("No authentication handler is registered for the scheme 'foo'"));
         }
         

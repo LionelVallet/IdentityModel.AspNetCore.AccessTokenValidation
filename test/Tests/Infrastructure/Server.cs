@@ -44,7 +44,7 @@ namespace Tests.Infrastructure
                 {
                     app.UseAuthentication();
 
-                    app.Use((context, next) =>
+                    app.Run((context) =>
                     {
                         var user = context.User;
 
